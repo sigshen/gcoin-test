@@ -1,0 +1,47 @@
+# Common Files
+.DS_Store
+.project
+.pydevproject
+.settings
+.coverage
+.vagrant*
+*.pyc
+rcfile.*
+!*.example
+*#*
+*~*
+nosetests.xml
+build/
+docs/_build
+*.backup*
+garbage/*
+.env/
+.en/
+env/
+db.sqlite3
+*.log
+log.*
+.oss_wallet/
+*.db
+
+# Project Files
+Gemfile*
+Berksfile.lock
+.webassets-cache
+instance
+settings.cfg
+*.swp
+*.bak
+
+# Python egg file
+*.egg-info
+
+# Process file
+*.pid
+
+# Jenkins reports file
+reports/
+
+# Package file
+*.tar.gz
+packages
