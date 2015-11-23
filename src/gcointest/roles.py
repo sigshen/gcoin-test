@@ -1,8 +1,8 @@
-
+import json
 import time
 
 from fabric.api import env, hosts
-from fabric.colors import yellow, cyan
+from fabric.colors import yellow, cyan, red
 from fabric.tasks import execute
 
 from gcointest.exceptions import wrap_exception
@@ -147,7 +147,7 @@ class Alliance(BaseRole):
         color = 1
         self.mint_0(1)
 
-        tx_hash_1 = self.proxy.sendlicensetoaddress(bitcoinaddress, color)
+        tx_hash_1 = self.proxy.sendlicensetoaddress(bitcoinaddress, color, config.FAKE_LICENSE_HEX_STRING)
         self._wait_for_maturity(tx_hash_1, config.LICENSE_MATURITY)
 
         tx_hash_2 = self.proxy.mint(default_amount, color)
@@ -158,7 +158,7 @@ class Alliance(BaseRole):
 
         self.mint_0(1)
         try:
-            tx_hash = self.proxy.sendlicensetoaddress(bitcoinaddress, color_id)
+            tx_hash = self.proxy.sendlicensetoaddress(bitcoinaddress, color_id, config.FAKE_LICENSE_HEX_STRING)
         except (WalletError, CoreException) as e:
             # Skip possible license transfer or other errors
             print cyan(e)

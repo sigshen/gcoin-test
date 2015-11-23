@@ -27,3 +27,22 @@ MIN_ACTIVATION_BTC = 1
 LICENSE_MATURITY = 10
 COINBASE_MATURITY = 10
 
+FAKE_LICENSE_HEX_STRING = "72110100046e616d650364657304616464720100000000000000000000000004616464720000000001046c696e6b0000000000000000000000000000000000000000000000000000000000000000"
+
+"""
+FAKE_LICENSE_INFO = {
+    "version": 1,
+    "name": "",
+    "description": "description",
+    "issuer": "",
+    "divisibility": True,
+    "fee_type": "fixed",
+    "fee_rate": 0.0,
+    "fee_collector": "",
+    "mint_schedule": "free",
+    "member_control": True,
+    "metadata_link": "hyperlink",
+    "metadata_hash": "hash"
+}
+"""
+
