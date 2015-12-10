@@ -44,8 +44,11 @@ class BaseRole(object):
                 loop_cnt -= 1
                 continue
 
+            if maturity == 0:
+                return tx_hash
             if result.has_key('confirmations') and result['confirmations'] > maturity:
                 return tx_hash
+
             time.sleep(1)
             loop_cnt -= 1
 
@@ -63,10 +66,13 @@ class BaseRole(object):
     def getblockcount(self):
         return self.proxy.getblockcount()
 
-    def send_coins(self, frombitcoinaddress, tobitcoinaddress, amount, color):
+    def send_coins(self, frombitcoinaddress, tobitcoinaddress, amount, color, verify=True):
         tx_hash = self.proxy.sendfrom(frombitcoinaddress,
                                       tobitcoinaddress, amount, color)
-        return self._wait_for_maturity(tx_hash, 1)
+        if verify:
+            return self._wait_for_maturity(tx_hash, 1)
+        else:
+            return self._wait_for_maturity(tx_hash, 0)
 
     def keypoolrefill(self, num):
         return self.proxy.keypoolrefill(num)

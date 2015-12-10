@@ -218,7 +218,7 @@ class AutoTest(BaseTest):
             # insufficient funds
             return
 
-        role.send_coins(from_address, to_address, amount, color)
+        role.send_coins(from_address, to_address, amount, color, False)
         msg = "{from_addr} send {amount} of color: {color} TO {to_addr}".format(from_addr=from_address,
                                                                                 amount=amount,
                                                                                 color=color,
